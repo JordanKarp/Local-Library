@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #[em Jordan's Local Library], a very basic Express website developed using MongoDB.
+
+  h1 Please login below:
+
+  if failureMessage
+     p failureMessage
+
+  form(method='POST' action='')
+    label(for='username') Username:
+    input#username.form-control(type='text' placeholder='Username' name='username' required='true' value=(undefined===user ? '' : user.username) )
+    label(for='password') Password:
+    input#password.form-control(type='password' placeholder='Password' name='password' required='true' value=(undefined===user ? '' : user.password))
+    button.btn.btn-primary(type='submit' action='/catalog') Login
+    if errors
+     ul
+      for error in errors
+        li!= error.msg
+    
+  a(href='/register') Or click here to create an account

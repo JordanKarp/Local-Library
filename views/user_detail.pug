@@ -1,0 +1,9 @@
+extends layout
+
+block content
+
+  h1 User: #{user.username}
+  p
+    a(href=user.url+'/update') Update user
+  p
+    a(href=user.url+'/delete') Delete user
