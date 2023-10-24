@@ -9,7 +9,7 @@ a {
 }
 
 p, button, input {
-  padding: 10px;
+  margin-bottom: 5px;
 }
 
 .sidebar-nav {
