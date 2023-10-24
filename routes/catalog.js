@@ -142,6 +142,13 @@ router.get("/users", user_controller.user_list);
 router.get("/user/:id", user_controller.user_detail);
 
 
+// GET request to delete User.
+router.get("/user/:id/delete", user_controller.user_delete_get);
+
+// POST request to delete one User.
+router.post("/user/:id/delete", user_controller.user_delete_post);
+
+
 
 
 module.exports = router;

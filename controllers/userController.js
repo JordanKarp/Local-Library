@@ -14,7 +14,8 @@ exports.register = asyncHandler( async(req, res, next) => {
     const newUser = new User({
         username:req.body.username,
         hash: hash,
-        salt: salt
+        salt: salt,
+        isAdmin: false
     });
 
     await newUser.save()
@@ -63,3 +64,29 @@ exports.user_detail = asyncHandler(async (req, res, next) => {
     });
   });
   
+
+  // Display Users delete form on GET.
+exports.user_delete_get = asyncHandler(async (req, res, next) => {
+  const user = await User.findById(req.params.id).exec()
+  if (user === null) {
+      // No results.
+      res.redirect("/catalog/users");
+    }
+    res.render("user_delete", {
+      title: "Delete user",
+      user: user,
+    });
+});
+
+
+// Handle User delete on POST.
+exports.user_delete_post = asyncHandler(async (req, res, next) => {
+    const user = await User.findByIdAndRemove(req.params.id);
+    if (user === req.user) {
+      this.logout()
+      res.redirect("/login");
+    }
+    else {
+      res.redirect("/catalog/users");
+    }
+});

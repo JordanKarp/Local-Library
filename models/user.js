@@ -5,7 +5,7 @@ const {Schema} = mongoose;
 const UserSchema = new Schema({
   username: {type: String, required: true },
   hash: {type: String, required: true },
-  salt: {type: String, required: true },
+  salt: {type: String, required: true }
 });
 
 // Virtual for author's URL

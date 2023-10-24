@@ -1,14 +1,19 @@
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #0289bf;
+}
+
+p, button, input {
+  padding: 10px;
 }
 
 .sidebar-nav {
   margin-top: 20px;
-  padding: 0;
+  padding: 2px;
   list-style: none;
 }
